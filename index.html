@@ -2452,7 +2452,26 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
+        .doctor-patient-image {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.doctor-patient-image img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.doctor-patient-image p {
+  color: var(--primary-dark);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -2637,7 +2656,10 @@
         <div class="container who-is-this-for-container">
             <h2 class="who-is-this-for-title">Who Is The URFERTILEBABY Method For?</h2>
             <p class="who-is-this-for-subtitle">Our comprehensive approach helps women at all stages of their fertility journey who are looking for a natural, effective alternative to conventional treatments</p>
-            
+            <div class="doctor-patient-image">
+  <img src="doctorpatient.png" alt="Dr. Aishwarya with pregnant patient" class="rounded-lg shadow-lg max-w-full mx-auto">
+  <p class="text-center text-sm italic mt-2">Dr. Aishwarya with a patient who successfully conceived using our natural fertility method</p>
+</div>
             <div class="who-is-this-for-grid">
                 <div class="who-is-this-for-card">
                     <div class="who-is-this-for-icon">
