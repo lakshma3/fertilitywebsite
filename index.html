@@ -2731,26 +2731,42 @@
           <!-- COMPREHENSIVE VIDEO SOLUTION -->
 <div class="method-video" style="text-align: center; margin: 30px auto; max-width: 800px;">
     <h2 style="text-align: center; margin-bottom: 20px;">Watch How It Works</h2>
-    <!-- TEST SECTION -->
-<div style="text-align: center; margin: 30px auto; max-width: 800px; padding: 20px; background: #f8f8f8; border-radius: 10px;">
-    <h3>Video File Test</h3>
-    <p>Click this link to test if your video file is accessible:</p>
-    <a href="FERTILITY GRIEF COUNSELLING.mp4" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Test Video File</a>
     
-    <div style="margin-top: 20px;">
-        <p>If clicking the link above doesn't download or play your video, then there's an issue with the file path.</p>
-        <p>Your video file should be named exactly: <strong>FERTILITY GRIEF COUNSELLING.mp4</strong></p>
-        <p>And it should be in the same folder as your HTML file.</p>
-    </div>
-</div>
-    <!-- ULTRA SIMPLE VIDEO APPROACH -->
-<div style="text-align: center; margin: 30px auto; max-width: 800px;">
-    <!-- Plain video element with controls -->
-    <video width="100%" height="auto" controls
+    <video id="fertilityVideo" width="100%" height="auto" autoplay muted loop playsinline controls
            style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%;">
         <source src="FERTILITY GRIEF COUNSELLING.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    
+    <script>
+        // Get the video element
+        const video = document.getElementById('fertilityVideo');
+        
+        // Function to force play
+        function forcePlay() {
+            // Make sure it's muted (required for autoplay)
+            video.muted = true;
+            
+            // Try to play
+            video.play()
+                .then(() => console.log("Autoplay successful"))
+                .catch(err => console.error("Autoplay failed:", err));
+        }
+        
+        // Try to play immediately
+        forcePlay();
+        
+        // Try again after a short delay
+        setTimeout(forcePlay, 1000);
+        
+        // Try again after page is fully loaded
+        window.addEventListener('load', forcePlay);
+        
+        // Try on first user interaction
+        document.addEventListener('click', forcePlay, {once: true});
+        document.addEventListener('touchstart', forcePlay, {once: true});
+        document.addEventListener('scroll', forcePlay, {once: true});
+    </script>
 </div>
             <div class="method-steps">
                 <div class="method-step">
