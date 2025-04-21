@@ -2728,61 +2728,56 @@
             <h2 class="method-title">The URFERTILEBABY Method: My Revolutionary 9-Step Fertility Breakthrough System</h2>
             <p class="method-subtitle">The comprehensive, evidence-based approach that's helping women conceive naturally by <strong><span class="fertility-keyword">BOOSTING egg quality and sperm quality</span></strong> in as little as 3 months - even after years of failed <span class="fertility-keyword">IUI/IVF</span> fertility treatments</p>
             
-          <!-- START OF VIDEO SECTION - COMPLETELY NEW APPROACH -->
+          <!-- COMPREHENSIVE VIDEO SOLUTION -->
 <div class="method-video" style="text-align: center; margin: 30px auto; max-width: 800px;">
     <h2 style="text-align: center; margin-bottom: 20px;">Watch How It Works</h2>
     
-    <div id="videoContainer">
-        <!-- Video will be inserted here by JavaScript -->
-    </div>
+    <!-- Video with all possible attributes -->
+    <video id="fertilityVideo" width="100%" height="auto" 
+           autoplay muted loop playsinline controls
+           style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%;">
+        <source src="FERTILITY GRIEF COUNSELLING.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     
     <script>
-        // This is a more aggressive approach to ensure autoplay
+        // Function to handle video setup and autoplay
         function setupVideo() {
-            // Create video element programmatically
-            const videoContainer = document.getElementById('videoContainer');
-            const video = document.createElement('video');
+            const video = document.getElementById('fertilityVideo');
             
-            // Set all attributes for maximum autoplay compatibility
-            video.width = "100%";
-            video.height = "auto";
-            video.autoplay = true;
+            // Make sure it's muted (required for autoplay)
             video.muted = true;
-            video.loop = true;
-            video.playsInline = true;
-            video.defaultMuted = true;
-            video.style = "border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%;";
             
-            // Add source
-            const source = document.createElement('source');
-            source.src = "FERTILITY GRIEF COUNSELLING.mp4";
-            source.type = "video/mp4";
-            video.appendChild(source);
+            // Try to play immediately
+            const playPromise = video.play();
             
-            // Add fallback text
-            video.appendChild(document.createTextNode("Your browser does not support the video tag."));
+            // Handle play promise (modern browsers return a promise from play())
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay started successfully
+                    console.log("Video autoplay started successfully");
+                }).catch(error => {
+                    // Autoplay failed - log error and try again
+                    console.log("Autoplay failed: ", error);
+                    
+                    // Try again after a delay
+                    setTimeout(() => {
+                        video.play().catch(e => console.log("Second attempt failed"));
+                    }, 1000);
+                });
+            }
             
-            // Add to container
-            videoContainer.appendChild(video);
-            
-            // Force play with multiple attempts
-            video.play().catch(e => {
-                console.log("Initial autoplay failed:", e);
-                
-                // Try again after a delay
-                setTimeout(() => {
-                    video.muted = true;
-                    video.play().catch(e => console.log("Second attempt failed:", e));
-                }, 1000);
-            });
-            
-            // Also try on user interaction
+            // Also try on user interaction (fallback)
             document.addEventListener('click', function() {
-                video.play().catch(e => console.log("Play on click failed:", e));
+                video.play().catch(e => console.log("Play on click failed"));
             }, {once: true});
+            
+            // Log video status for debugging
+            console.log("Video element created with src:", video.querySelector('source').src);
+            console.log("Video ready state:", video.readyState);
         }
         
-        // Run on page load
+        // Run when DOM is ready
         if (document.readyState === "loading") {
             document.addEventListener("DOMContentLoaded", setupVideo);
         } else {
@@ -2790,18 +2785,9 @@
         }
         
         // Also try on window load
-        window.addEventListener('load', function() {
-            const videos = document.getElementsByTagName('video');
-            if (videos.length > 0) {
-                for (let i = 0; i < videos.length; i++) {
-                    videos[i].muted = true;
-                    videos[i].play();
-                }
-            }
-        });
+        window.addEventListener('load', setupVideo);
     </script>
 </div>
-<!-- END OF VIDEO SECTION -->
            
             <div class="method-steps">
                 <div class="method-step">
