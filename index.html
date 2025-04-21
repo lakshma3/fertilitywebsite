@@ -2729,9 +2729,9 @@
             <p class="method-subtitle">The comprehensive, evidence-based approach that's helping women conceive naturally by <strong><span class="fertility-keyword">BOOSTING egg quality and sperm quality</span></strong> in as little as 3 months - even after years of failed <span class="fertility-keyword">IUI/IVF</span> fertility treatments</p>
             
            <div class="method-video">
-    <div class="video-container">
-        <!-- Your video from repository -->
-        <video controls width="100%">
+    <div class="video-container" style="width: 100%; height: 0; padding-bottom: 100%; position: relative; overflow: hidden;">
+        <!-- Your video from repository with autoplay and proper sizing -->
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
             <source src="FERTILITY GRIEF COUNSELLING.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -3490,9 +3490,7 @@
             
             document.getElementById('micro-step-' + step).style.display = 'block';
             document.getElementById('progress-bar').style.width = (step * 33) + '%';
-        }
-        
-        // FAQ Toggles
+        }// FAQ Toggles
         function toggleFaq(element) {
             const parent = element.parentElement;
             parent.classList.toggle('active');
@@ -3611,6 +3609,54 @@
             
             return false;
         }
+        
+        // Video autoplay and loop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-container video');
+            if (video) {
+                // Make sure video loops continuously
+                video.loop = true;
+                // Ensure video autoplays
+                video.autoplay = true;
+                video.muted = true;
+                video.playsinline = true;
+                
+                // Force play in case autoplay attribute doesn't work
+                video.play().catch(e => {
+                    console.log("Autoplay prevented:", e);
+                });
+                
+                video.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                    } else {
+                        video.muted = true;
+                    }
+                });
+                
+                // Add a mute/unmute indicator
+                const container = document.querySelector('.video-container');
+                const muteIndicator = document.createElement('div');
+                muteIndicator.innerHTML = '🔇 Click to unmute';
+                muteIndicator.style.position = 'absolute';
+                muteIndicator.style.bottom = '10px';
+                muteIndicator.style.right = '10px';
+                muteIndicator.style.background = 'rgba(0,0,0,0.5)';
+                muteIndicator.style.color = 'white';
+                muteIndicator.style.padding = '5px 10px';
+                muteIndicator.style.borderRadius = '4px';
+                muteIndicator.style.fontSize = '14px';
+                container.appendChild(muteIndicator);
+                
+                video.addEventListener('click', function() {
+                    if (video.muted) {
+                        muteIndicator.innerHTML = '🔇 Click to unmute';
+                    } else {
+                        muteIndicator.innerHTML = '🔊 Click to mute';
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
