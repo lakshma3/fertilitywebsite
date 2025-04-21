@@ -2731,64 +2731,27 @@
           <!-- COMPREHENSIVE VIDEO SOLUTION -->
 <div class="method-video" style="text-align: center; margin: 30px auto; max-width: 800px;">
     <h2 style="text-align: center; margin-bottom: 20px;">Watch How It Works</h2>
+    <!-- TEST SECTION -->
+<div style="text-align: center; margin: 30px auto; max-width: 800px; padding: 20px; background: #f8f8f8; border-radius: 10px;">
+    <h3>Video File Test</h3>
+    <p>Click this link to test if your video file is accessible:</p>
+    <a href="FERTILITY GRIEF COUNSELLING.mp4" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Test Video File</a>
     
-    <!-- Video with all possible attributes -->
-    <video id="fertilityVideo" width="100%" height="auto" 
-           autoplay muted loop playsinline controls
+    <div style="margin-top: 20px;">
+        <p>If clicking the link above doesn't download or play your video, then there's an issue with the file path.</p>
+        <p>Your video file should be named exactly: <strong>FERTILITY GRIEF COUNSELLING.mp4</strong></p>
+        <p>And it should be in the same folder as your HTML file.</p>
+    </div>
+</div>
+    <!-- ULTRA SIMPLE VIDEO APPROACH -->
+<div style="text-align: center; margin: 30px auto; max-width: 800px;">
+    <!-- Plain video element with controls -->
+    <video width="100%" height="auto" controls
            style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 100%;">
         <source src="FERTILITY GRIEF COUNSELLING.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
-    <script>
-        // Function to handle video setup and autoplay
-        function setupVideo() {
-            const video = document.getElementById('fertilityVideo');
-            
-            // Make sure it's muted (required for autoplay)
-            video.muted = true;
-            
-            // Try to play immediately
-            const playPromise = video.play();
-            
-            // Handle play promise (modern browsers return a promise from play())
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Autoplay started successfully
-                    console.log("Video autoplay started successfully");
-                }).catch(error => {
-                    // Autoplay failed - log error and try again
-                    console.log("Autoplay failed: ", error);
-                    
-                    // Try again after a delay
-                    setTimeout(() => {
-                        video.play().catch(e => console.log("Second attempt failed"));
-                    }, 1000);
-                });
-            }
-            
-            // Also try on user interaction (fallback)
-            document.addEventListener('click', function() {
-                video.play().catch(e => console.log("Play on click failed"));
-            }, {once: true});
-            
-            // Log video status for debugging
-            console.log("Video element created with src:", video.querySelector('source').src);
-            console.log("Video ready state:", video.readyState);
-        }
-        
-        // Run when DOM is ready
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", setupVideo);
-        } else {
-            setupVideo();
-        }
-        
-        // Also try on window load
-        window.addEventListener('load', setupVideo);
-    </script>
 </div>
-           
             <div class="method-steps">
                 <div class="method-step">
                     <div class="method-step-number">1</div>
