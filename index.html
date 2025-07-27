@@ -344,7 +344,7 @@
         }
         
         .research-highlight::before {
-            content: """;
+            content: '"';
             position: absolute;
             top: 0;
             left: 5px;
@@ -385,112 +385,55 @@
             gap: 8px;
         }
         
-        .appointment-info {
+        /* VSL Container Styles */
+        .vsl-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        #hero-vsl {
+            width: 100%;
+            display: block;
+        }
+        .play-button-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .play-button-overlay:hover {
+            background: rgba(0,0,0,0.6);
+        }
+        .play-button-overlay i {
+            font-size: 5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .play-button-overlay p {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Calendar Styles */
+        .hero-calendar-widget {
             background: rgba(255,255,255,0.95);
             padding: 15px;
             border-radius: 15px;
-            margin-top: 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             color: var(--text);
         }
-        
-        .appointment-title {
-            color: var(--secondary-dark);
-            font-weight: 800;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .appointment-options {
-            margin-bottom: 10px;
-        }
-        
-        .appointment-option {
-            background: var(--light);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-        
-        .appointment-option:hover {
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .appointment-price {
-            font-weight: 600;
-            color: var(--secondary-dark);
-        }
-        
-        .appointment-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            gap: 20px;
-        }
-        
-        .appointment-note {
-            color: var(--primary-dark);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Countdown Timer */
-        .countdown {
-            background-color: var(--white);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .countdown-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--secondary-dark);
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .countdown-segment {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .countdown-number {
-            background-color: var(--secondary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-            color: var(--text);
-        }
-        
-        /* Calendar Slots */
         .calendar-slots {
             margin-bottom: 15px;
         }
@@ -504,7 +447,7 @@
         
         .calendar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 10px;
             margin-bottom: 10px;
         }
@@ -520,6 +463,7 @@
         .calendar-date h4 {
             margin-bottom: 8px;
             color: var(--primary-dark);
+            font-size: 1rem;
         }
         
         .calendar-slots-list {
@@ -537,6 +481,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            font-size: 0.85rem;
         }
         
         .calendar-slot.available {
@@ -601,6 +546,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
+            justify-items: center; /* This will center the cards */
         }
         
         .emotional-card {
@@ -613,6 +559,7 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            max-width: 350px; /* Ensure cards don't get too wide */
         }
         
         .emotional-card:hover {
@@ -1175,7 +1122,7 @@
         }
         
         .story-journey::before {
-            content: """;
+            content: '"';
             position: absolute;
             top: 10px;
             left: 20px;
@@ -1416,6 +1363,7 @@
         .case-card-title {
             font-size: 0.9rem;
             color: var(--text);
+            font-weight: 700;
         }
         
         .case-card-content {
@@ -2453,25 +2401,25 @@
             100% { transform: scale(1); }
         }
         .doctor-patient-image {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: var(--white);
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-}
+          max-width: 600px;
+          margin: 2rem auto;
+          padding: 1rem;
+          background-color: var(--white);
+          border-radius: 15px;
+          box-shadow: var(--shadow);
+        }
 
-.doctor-patient-image img {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-}
+        .doctor-patient-image img {
+          width: 100%;
+          border-radius: 10px;
+          display: block;
+        }
 
-.doctor-patient-image p {
-  color: var(--primary-dark);
-  font-weight: 500;
-  margin-top: 0.5rem;
-}
+        .doctor-patient-image p {
+          color: var(--primary-dark);
+          font-weight: 500;
+          margin-top: 0.5rem;
+        }
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -2492,11 +2440,11 @@
     
     <div class="info-banner">
         <div class="info-text">
-            <i class="fas fa-info-circle"></i>
-            <span class="info-highlight">WARNING:</span> 
-            <span>Conventional fertility clinics are WASTING your money without addressing the <strong class="fertility-keyword">ROOT CAUSE</strong> of your infertility</span>
+            <i class="fas fa-bullhorn"></i>
+            <span class="info-highlight">ATTENTION:</span> 
+            <span>For Women Over 35, Facing 'Unexplained Infertility', or Recovering From a Failed Cycle - Your Search For Answers Ends Here.</span>
             <span>|</span>
-            <span><i class="fas fa-calendar-alt"></i> <strong>Only 3 Spots Left</strong> for Free Fertility Strategy Call</span>
+            <span><i class="fas fa-calendar-alt"></i> <strong>Only 3 Spots Left</strong> This Week.</span>
         </div>
     </div>
     
@@ -2541,76 +2489,60 @@
                 </div>
                 
                 <div class="hero-image">
-                    <div class="appointment-info">
-                        <h3 class="appointment-title">FREE FERTILITY BREAKTHROUGH SESSION (VALUED AT $200)</h3>
-                        <div class="countdown">
-                            <div class="countdown-title">WARNING: Limited Time Offer - Expires In:</div>
-                            <div class="countdown-timer">
-                                <div class="countdown-segment">
-                                    <div class="countdown-number" id="countdown-minutes">04</div>
-                                    <div class="countdown-label">Minutes</div>
-                                </div>
-                                <div class="countdown-segment">
-                                    <div class="countdown-number" id="countdown-seconds">00</div>
-                                    <div class="countdown-label">Seconds</div>
-                                </div>
-                            </div>
+                    <div class="vsl-container">
+                        <video id="hero-vsl" poster="myphoto2.jpg" playsinline>
+                            <source src="YOUR_VSL_FILENAME.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="play-button-overlay" onclick="playVSL()">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Watch Now: My Story & The 9-Step Method</p>
                         </div>
-                        <div class="appointment-options">
-                            <div class="appointment-option" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">
-                                <h4>20-Minute Fertility Breakthrough Session</h4>
-                                <p>Uncover the <strong class="fertility-keyword">HIDDEN ROOT CAUSE</strong> of your fertility struggles and get your personalized fertility blueprint to help you conceive naturally by <strong class="fertility-keyword">BOOSTING egg and sperm quality</strong> in as little as 3 months</p>
-                                <p class="appointment-price">Normally $200 - FREE for you today!</p>
-                            </div>
-                        </div>
-                        <div class="calendar-slots">
+                    </div>
+                    <div class="hero-calendar-widget">
+                         <div class="calendar-slots">
                             <h3 class="calendar-title">Available Times This Week:</h3>
                             <div class="calendar-grid">
                                 <div class="calendar-date">
                                     <h4>Today</h4>
                                     <div class="calendar-slots-list">
-                                        <div class="calendar-slot booked">10:00 AM - BOOKED</div>
-                                        <div class="calendar-slot booked">11:30 AM - BOOKED</div>
-                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">2:15 PM - AVAILABLE</div>
-                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">4:00 PM - AVAILABLE</div>
+                                        <div class="calendar-slot booked">10:00 AM</div>
+                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">2:15 PM</div>
                                     </div>
                                 </div>
-                                
                                 <div class="calendar-date">
                                     <h4>Tomorrow</h4>
                                     <div class="calendar-slots-list">
-                                        <div class="calendar-slot booked">9:30 AM - BOOKED</div>
-                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">11:00 AM - AVAILABLE</div>
-                                        <div class="calendar-slot booked">1:45 PM - BOOKED</div>
-                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">3:30 PM - AVAILABLE</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="calendar-date">
-                                    <h4>Day After Tomorrow</h4>
-                                    <div class="calendar-slots-list">
-                                        <div class="calendar-slot booked">10:15 AM - BOOKED</div>
-                                        <div class="calendar-slot booked">12:00 PM - BOOKED</div>
-                                        <div class="calendar-slot booked">2:30 PM - BOOKED</div>
-                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">4:45 PM - AVAILABLE</div>
+                                        <div class="calendar-slot booked">9:30 AM</div>
+                                        <div class="calendar-slot available" onclick="location.href='https://womenhealthcareclinic.janeapp.com/#staff_member/1'">3:30 PM</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="calendar-note">These spots will fill quickly - book now to secure yours!</div>
-                        </div>
-                        <div class="appointment-footer">
-                            <div class="appointment-note">
-                                <i class="fas fa-shield-alt"></i> Zero Obligation
-                            </div>
-                            <div class="appointment-note">
-                                <i class="fas fa-clock"></i> Only 3 Spots Remain!
-                            </div>
+                            <div class="calendar-note">Only 3 Spots Left! Book Now!</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ====================================================== -->
+    <!-- ===== TACTICAL TRIAGE SECTION - START ===== -->
+    <!-- ====================================================== -->
+    <section id="intel-briefing" style="background: #ffffff; padding: 40px 0; text-align: center; border-bottom: 1px solid #ddd;">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat', sans-serif; color: var(--dark); font-size: 1.6rem; margin-bottom: 25px; font-weight: 600;">Which path sounds most like your own?</h2>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="#who-is-this-for" class="micro-step-btn" style="background: var(--primary-dark);"><i class="fas fa-calendar-times"></i> I keep getting BFNs or irregular periods</a>
+                <a href="#who-is-this-for" class="micro-step-btn" style="background: var(--primary-dark);"><i class="fas fa-question-circle"></i> My fertility Diagnosis is 'Unexplained'</a>
+                <a href="#who-is-this-for" class="micro-step-btn" style="background: var(--primary-dark);"><i class="fas fa-heart-broken"></i> I've Had Failed medicated, IUI/IVF Cycles Before</a>
+                <a href="#who-is-this-for" class="micro-step-btn" style="background: var(--primary-dark);"><i class="fas fa-hourglass-half"></i> I'm Over 35 and Need a Plan</a>
+            </div>
+        </div>
+    </section>
+    <!-- ==================================================== -->
+    <!-- ===== TACTICAL TRIAGE SECTION - END ===== -->
+    <!-- ==================================================== -->
     
     <section class="emotional-pain" id="emotional-pain">
         <div class="container emotional-pain-container">
@@ -3052,7 +2984,7 @@
                         <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Maria, 42</div>
-                            <div class="case-card-title"><span class="fertility-keyword">Advanced Maternal Age</span>, 3 Failed <span class="fertility-keyword">IVF</span> Cycles</div>
+                            <div class="case-card-title">Told Her Eggs Were "Too Old" After 3 Failed IVFs</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3074,7 +3006,7 @@
                         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Emily, 34</div>
-                            <div class="case-card-title"><span class="fertility-keyword">PCOS</span> & Irregular Cycles</div>
+                            <div class="case-card-title">From Irregular Cycles with PCOS to Natural Conception</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3096,7 +3028,7 @@
                         <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Rebecca" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Rebecca, 32</div>
-                            <div class="case-card-title"><span class="fertility-keyword">Unexplained Infertility</span>, 2 Years Trying</div>
+                            <div class="case-card-title">Finally Got Answers for "Unexplained Infertility"</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3118,7 +3050,7 @@
                         <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Sarah" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Sarah, 36</div>
-                            <div class="case-card-title">Stage 3 <span class="fertility-keyword">Endometriosis</span>, Severe Pain</div>
+                            <div class="case-card-title">From Debilitating Endometriosis Pain to a Natural Pregnancy</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3140,7 +3072,7 @@
                         <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael and Lisa" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Michael & Lisa</div>
-                            <div class="case-card-title">Severe <span class="fertility-keyword">Male Factor</span>, Recommended <span class="fertility-keyword">ICSI</span></div>
+                            <div class="case-card-title">Overcame Severe Male Factor, Avoiding IVF+ICSI</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3162,7 +3094,7 @@
                         <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Jessica" class="case-card-avatar">
                         <div>
                             <div class="case-card-name">Jessica, 34</div>
-                            <div class="case-card-title">3 <span class="fertility-keyword">Miscarriages</span>, No Explanation</div>
+                            <div class="case-card-title">A Healthy Baby After 3 Heartbreaking Miscarriages</div>
                         </div>
                     </div>
                     <div class="case-card-content">
@@ -3322,50 +3254,59 @@
         </div>
     </section><section class="faq" id="faq">
         <div class="container faq-container">
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            <p class="faq-subtitle">Get answers to the most common questions about the URFERTILEBABY Method</p>
+            <h2 class="faq-title">Your Questions, Answered</h2>
+            <p class="faq-subtitle">Get clarity on the most common questions about the URFERTILEBABY Method</p>
             
             <div class="faq-list">
                 <div class="faq-item active">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How is the URFERTILEBABY Method different from conventional fertility treatments? <i class="fas fa-chevron-down"></i>
+                        I have irregular cycles or keep getting negative tests (BFNs). How can this help? <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Conventional fertility treatments like <span class="fertility-keyword">IUI</span> and <span class="fertility-keyword">IVF</span> attempt to bypass your body's natural processes without addressing WHY you're struggling to conceive. The URFERTILEBABY Method takes a fundamentally different approach by identifying and healing the root causes of your fertility challenges.</p>
-                        <p>We use a comprehensive, personalized approach that combines advanced functional medicine testing, <span class="doctor-term">Traditional Chinese Medicine</span> wisdom, and cutting-edge nutritional science to uncover the unique factors blocking your fertility. By addressing these root causes, we help your body return to its natural fertile state - allowing you to conceive naturally without invasive procedures or financial devastation.</p>
+                        <p>Irregular cycles and repeated negative tests are symptoms of a deeper underlying issue. Conventional medicine often tries to mask these symptoms with drugs to force ovulation, but this rarely fixes the core problem. Our method acts as a 'fertility detective' to find out *why* your cycles are irregular or why implantation isn't happening.</p>
+                        <p>We investigate root causes like hidden hormonal imbalances (PCOS, thyroid issues), nutrient deficiencies that affect egg health, chronic inflammation, and high stress levels. By correcting these foundational problems, we help your body regulate its own cycle naturally, improve egg quality, and create the ideal environment for conception to occur, turning those negatives into positives.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        I've already had failed IUI or IVF cycles. Is it too late for me? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It is absolutely not too late. In fact, this is one of the most common situations we help women overcome. A failed IUI or IVF cycle is devastating, but it provides valuable data. It tells us that simply bypassing the natural process isn't enough if the core building blocks—the egg, the sperm, and the uterine environment—are not healthy.</p>
+                        <p>Our program focuses on what IVF cannot: dramatically improving your <strong class="fertility-keyword">egg quality</strong>, your partner's sperm quality, and reducing the inflammation that can prevent an embryo from implanting. By creating healthier eggs and a more receptive uterine lining, you can significantly increase the chances of success on your next IVF cycle, or, like many of our patients, find you no longer need one because you've conceived naturally.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        I've suffered from recurrent miscarriages. How is your approach different? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recurrent pregnancy loss is one of the most heartbreaking experiences a woman can endure. Often, women are told it's just "bad luck." We believe that is unacceptable. There is always a reason. Our method is different because we conduct a deep investigation into the often-overlooked causes of miscarriage.</p>
+                        <p>This includes comprehensive testing for autoimmune conditions, blood clotting disorders, underlying infections, severe nutrient deficiencies, and chromosomal issues related to poor egg or sperm DNA. We then create a targeted plan to calm the immune system, improve egg and sperm DNA integrity, and support the body's ability to maintain a healthy pregnancy. We don't just help you get pregnant; we help you *stay* pregnant.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        How long does it take to see results with the URFERTILEBABY Method? <i class="fas fa-chevron-down"></i>
+                        How is the URFERTILEBABY Method different from just eating healthy and taking supplements? <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Many women begin experiencing significant improvements in their overall health, cycle regularity, and fertility markers within the first month of implementing the URFERTILEBABY Method. However, the full transformation typically takes about 3 months, as this is the time needed for a complete egg maturation cycle.</p>
-                        <p>We focus on <strong class="fertility-keyword">BOOSTING egg and sperm quality</strong> in as little as 3 months, which exponentially enhances fertility and pregnancy rates. The exact timeline depends on your unique situation, the specific root causes we identify, and how consistently you implement the personalized recommendations.</p>
+                        <p>While a healthy diet and general supplements are a good start, they are often not enough to overcome significant fertility obstacles. It's like trying to fix a complex engine with a generic wrench. The URFERTILEBABY Method is a precise, targeted, and personalized protocol based on *your* specific biology.</p>
+                        <p>We use advanced functional testing to identify *your* unique root causes, and then create a customized blueprint. This means you get the right nutrients, in the right doses, at the right time, combined with specific lifestyle strategies to address your exact imbalances. It's the difference between guessing and a targeted, evidence-based strategy.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
-                        I'm already doing IVF. Can the URFERTILEBABY Method still help me? <i class="fas fa-chevron-down"></i>
+                        Do I have to stop seeing my fertility specialist or RE? <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely! The URFERTILEBABY Method can significantly improve your <span class="fertility-keyword">IVF</span> outcomes by addressing the underlying factors that may be preventing success. By optimizing your overall health, hormonal balance, <span class="fertility-keyword">egg quality</span>, and uterine receptivity, we can help increase your chances of successful embryo implantation and a healthy pregnancy.</p>
-                        <p>Many of our patients who were previously experiencing failed <span class="fertility-keyword">IVF</span> cycles have gone on to have successful pregnancies after implementing our approach alongside their medical treatments. We work collaboratively with your reproductive endocrinologist to ensure comprehensive care.</p>
+                        <p>Not at all. We believe in an integrative approach and are happy to work alongside your medical doctor or Reproductive Endocrinologist (RE). Our work is designed to complement medical treatments by improving your body's foundational health. By making you healthier, we make their treatments, like IUI or IVF, more likely to succeed. We see ourselves as a critical part of your comprehensive fertility team.</p>
                     </div>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        I'm over 40. Is it too late for me to conceive naturally? <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely not! While conventional medicine focuses heavily on age as the primary factor in fertility, our experience shows that many women over 40 can conceive naturally when the right approach is used. The key is identifying and addressing the specific factors affecting YOUR fertility, rather than focusing solely on chronological age.</p>
-                        <p>We've helped numerous women in their early and mid-40s conceive naturally after being told donor eggs were their "only option." By <strong class="fertility-keyword">BOOSTING egg quality</strong>, optimizing hormonal balance, and enhancing overall reproductive health, we've seen remarkable success even in women with very low <span class="fertility-keyword">AMH</span> and high <span class="fertility-keyword">FSH</span> levels.</p>
-                    </div>
-                </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         What happens during the free Fertility Breakthrough Session? <i class="fas fa-chevron-down"></i>
@@ -3379,7 +3320,7 @@
             
             <div class="faq-cta">
                 <a href="https://womenhealthcareclinic.janeapp.com/#staff_member/1" class="story-button pulse">
-                    <i class="fas fa-calendar-check"></i> CLAIM YOUR FREE FERTILITY BREAKTHROUGH SESSION NOW
+                    <i class="fas fa-calendar-check"></i> I HAVE MORE QUESTIONS - BOOK MY FREE SESSION
                 </a>
             </div>
         </div>
@@ -3507,29 +3448,6 @@
     </div>
     
     <script>
-        // Countdown Timer - 4 minutes only
-        function updateCountdown() {
-            let minutes = parseInt(document.getElementById('countdown-minutes').textContent);
-            let seconds = parseInt(document.getElementById('countdown-seconds').textContent);
-            
-            seconds--;
-            
-            if (seconds < 0) {
-                seconds = 59;
-                minutes--;
-            }
-            
-            if (minutes < 0) {
-                minutes = 4;
-                seconds = 0;
-            }
-            
-            document.getElementById('countdown-minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById('countdown-seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-        }
-        
-        setInterval(updateCountdown, 1000);
-        
         // Micro-commitment steps
         function showMicroStep(step) {
             document.querySelectorAll('.micro-step').forEach(el => {
@@ -3538,7 +3456,18 @@
             
             document.getElementById('micro-step-' + step).style.display = 'block';
             document.getElementById('progress-bar').style.width = (step * 33) + '%';
-        }// FAQ Toggles
+        }
+        
+        // VSL Player
+        function playVSL() {
+            const video = document.getElementById('hero-vsl');
+            const overlay = document.querySelector('.play-button-overlay');
+            overlay.style.display = 'none';
+            video.play();
+            video.controls = true;
+        }
+
+        // FAQ Toggles
         function toggleFaq(element) {
             const parent = element.parentElement;
             parent.classList.toggle('active');
